@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import hastaSquashResponse from "./squashReducer";
+import freeCourts from "./squashReducer";
+import squashApiCallInProgress from "./apiStatusReducer";
 
 const rootReducers = combineReducers({
-  hastaSquashResponse: hastaSquashResponse
+  freeCourts,
+  squashApiCallInProgress
 });
 
 export default rootReducers;

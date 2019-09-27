@@ -4,18 +4,25 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "json-server": "^0.15.1",
+    "konva": "^4.0.12",
     "react": "^16.9.0",
     "react-bootstrap": "^1.0.0-beta.12",
     "react-datepicker": "^2.9.6",
     "react-dom": "^16.9.0",
+    "react-konva": "^16.9.0-1",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.2",
     "react-time-picker": "^3.7.2",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:dev": "run-p start:api start",
+    "prestart:api": "node src/tools/createMockDb.js",
+    "start:api": "node src/tools/apiServer.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -36,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "npm-run-all": "^4.1.5",
     "redux-immutable-state-invariant": "^2.1.0"
   }
 }
