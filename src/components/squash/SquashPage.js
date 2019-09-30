@@ -4,13 +4,14 @@ import { connect } from "react-redux";
 import * as squashAction from "../../redux/actions/squashActions";
 import { newSquashRequest } from "../../tools/mockData";
 import { squashCourts } from "../../tools/courtsCoordinates";
-import { convertDatePart } from "../../tools/helpers";
+import { convertInputDate } from "../../tools/helpers";
 import "./SquashPage.css";
 import SquashList from "../common/HastaCourtsList";
 import Searching from "../common/Searching";
 
 const SquashPage = ({ squashApi, freeCourts, searchSquash }) => {
   const [squashRequest, setSquashRequest] = useState(newSquashRequest);
+  const [defaultStartDate, setDefaultStartDate] = useState(true);
 
   useEffect(() => {
     if (freeCourts && freeCourts.length === 0 && squashApi > 0) {
@@ -27,14 +28,26 @@ const SquashPage = ({ squashApi, freeCourts, searchSquash }) => {
   const handleOnSubmit = event => {
     event.preventDefault();
 
+    if(defaultStartDate){
+      setSquashRequest(prevRequest => {
+        return {...prevRequest, "StartDate": convertInputDate(prevRequest.StartDate) }
+      });
+    }
+
+    console.log(JSON.stringify(squashRequest));
     searchSquash(squashRequest);
   };
 
   const handleOnChange = event => {
     const { name, value } = event.target;
+
+    if(name === "StartDate"){
+      setDefaultStartDate(false);
+    }
+
     setSquashRequest(prevRequest => ({
       ...prevRequest,
-      [name]: convertDatePart(name, value)
+      [name]: value
     }));
   };
 
