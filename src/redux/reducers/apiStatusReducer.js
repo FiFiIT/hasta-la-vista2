@@ -6,10 +6,10 @@ export default function apiCallStatusReducer(
   action
 ) {
   switch (action.type) {
-    case types.BEGIN_SQUASH_API_CALL:
-      return 1;
-    case types.STOP_SQUASH_API_CALL:
-      return 0;
+    case types.BEGIN_API_CALL:
+      return true;
+    case types.STOP_API_CALL:
+      return false;
     default:
       return state;
   }

@@ -1,30 +1,33 @@
 import React, { useState, useEffect } from "react";
-import SquashForm from "./SquashForm";
+import SquashForm from "../common/SearchForm";
 import { connect } from "react-redux";
 import * as squashAction from "../../redux/actions/squashActions";
 import { newSquashRequest } from "../../tools/mockData";
-import { convertInputDate } from "../../tools/helpers";
+import { squashCourts } from "../../tools/courtsCoordinates";
+import { convertDatePart } from "../../tools/helpers";
 import "./SquashPage.css";
-import SquashSearching from "./SquashSearching";
-import SquashList from "./SquashList";
+import SquashList from "../common/HastaCourtsList";
+import Searching from "../common/Searching";
 
-const SquashPage = ({ ...props }) => {
+const SquashPage = ({ squashApi, freeCourts, searchSquash }) => {
   const [squashRequest, setSquashRequest] = useState(newSquashRequest);
 
   useEffect(() => {
-    if (props.freeCourts && props.squashApi > 0) {
-      setTimeout(() => props.searchSquash(squashRequest), 60000);
+    if (freeCourts && freeCourts.length === 0 && squashApi > 0) {
+      setTimeout(() => searchSquash(squashRequest), 10000);
+
       console.log(
         new Date().toLocaleTimeString() +
           "> Searching for: " +
           JSON.stringify(squashRequest)
       );
     }
-  }, [props.freeCourts]);
+  }, [freeCourts]);
 
   const handleOnSubmit = event => {
     event.preventDefault();
-    props.searchSquash(squashRequest);
+
+    searchSquash(squashRequest);
   };
 
   const handleOnChange = event => {
@@ -35,29 +38,19 @@ const SquashPage = ({ ...props }) => {
     }));
   };
 
-  function convertDatePart(name, value) {
-    switch (name) {
-      case "StartDate":
-        return convertInputDate(value);
-      case "Duration":
-        return parseInt(value);
-      default:
-        return value;
-    }
-  }
-
   return (
     <>
-      {props.squashApi > 0 || props.freeCourts.length > 0 ? (
+      {squashApi || freeCourts.length > 0 ? (
         <>
-          <SquashSearching callInProgress={props.squashApi} />
-          <SquashList freeCourts={props.freeCourts} />
+          <Searching request={squashRequest} show={squashApi} />
+          <SquashList freeCourts={freeCourts} rectCourts={squashCourts} />
         </>
       ) : (
         <SquashForm
           squashRequest={squashRequest}
           handleOnChange={handleOnChange}
           handleOnSubmit={handleOnSubmit}
+          title="Squash"
         />
       )}
     </>
@@ -66,8 +59,8 @@ const SquashPage = ({ ...props }) => {
 
 function mapStateToProps(state) {
   return {
-    freeCourts: state.freeCourts,
-    squashApi: state.squashApiCallInProgress
+    squashApi: state.squashApiCallInProgress,
+    freeCourts: state.freeCourts
   };
 }
 

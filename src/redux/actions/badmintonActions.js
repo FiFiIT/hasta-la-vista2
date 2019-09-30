@@ -1,22 +1,18 @@
 import * as types from "./actionTypes";
-import * as squashApi from "../../api/hastaApi";
+import * as hastaApi from "../../api/hastaApi";
 import { beginApiCall, stopApiCall } from "./apiStatusActions";
 
-export function search(squashRequest) {
-  return { type: types.SERACH_SQUASH, squashRequest };
+export function searchBadmintonSuccess(freeCourts) {
+  return { type: types.SEARCH_BADMINTON_SUCCESS, freeCourts };
 }
 
-export function searchSquashSuccess(freeCourts) {
-  return { type: types.SEARCH_SQUASH_SUCCESS, freeCourts };
-}
-
-export function searchSquash(squashRequest) {
+export function searchBadminton(badmintonRequest) {
   return function(dispatch) {
     dispatch(beginApiCall());
-    return squashApi
-      .searchForFreeCourts(squashRequest)
+    return hastaApi
+      .searchForFreeCourts(badmintonRequest)
       .then(freeCourts => {
-        dispatch(searchSquashSuccess(freeCourts));
+        dispatch(searchBadmintonSuccess(freeCourts));
         if (freeCourts.length > 0) {
           dispatch(stopApiCall());
         }

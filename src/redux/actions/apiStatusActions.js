@@ -1,9 +1,9 @@
 import * as types from "./actionTypes";
 
-export function beginSquashApiCall() {
-  return { type: types.BEGIN_SQUASH_API_CALL };
+export function beginApiCall() {
+  return { type: types.BEGIN_API_CALL };
 }
 
-export function stopSquashApiCall() {
-  return { type: types.STOP_SQUASH_API_CALL };
+export function stopApiCall() {
+  return { type: types.STOP_API_CALL };
 }

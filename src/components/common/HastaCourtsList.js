@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Stage, Layer, Rect } from "react-konva";
-import "./SquashList.css";
-import { rectCourts } from "../../tools/courtsCoordinates";
+import "./HastaCourtsList.css";
 
-const SquashList = ({ freeCourts }) => {
+const HastaCourtsList = ({ freeCourts, rectCourts }) => {
   const [availableCourts, setavailableCourts] = useState([]);
 
   useEffect(() => {
@@ -46,4 +45,4 @@ const SquashList = ({ freeCourts }) => {
   );
 };
 
-export default SquashList;
+export default HastaCourtsList;

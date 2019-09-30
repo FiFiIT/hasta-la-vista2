@@ -1,13 +1,23 @@
 import React from "react";
-import "./SquashForm.css";
+import "./SearchForm.css";
 import { getCurrentDate } from "../../tools/helpers";
 import logo from "../img/hasta-logo.png";
 
-const SquashForm = ({ squashRequest, handleOnChange, handleOnSubmit }) => {
+const SearchFrom = ({
+  squashRequest,
+  handleOnChange,
+  handleOnSubmit,
+  title
+}) => {
   return (
     <div id="booking" className="section">
       <div className="section-center">
         <div className="container">
+          <div className="row">
+            <div className="col-md-5">
+              <h4>{title}</h4>
+            </div>
+          </div>
           <div className="row">
             <div className="col-md-5">
               <div className="booking-form">
@@ -86,4 +96,4 @@ const SquashForm = ({ squashRequest, handleOnChange, handleOnSubmit }) => {
   );
 };
 
-export default SquashForm;
+export default SearchFrom;

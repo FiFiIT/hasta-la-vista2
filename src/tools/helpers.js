@@ -25,3 +25,14 @@ export const convertInputDate = date => {
 
   return new Date(year, month, day, 0, 0, 0, 0).toLocaleDateString();
 };
+
+export function convertDatePart(name, value) {
+  switch (name) {
+    case "StartDate":
+      return convertInputDate(value);
+    case "Duration":
+      return parseInt(value);
+    default:
+      return value;
+  }
+}
