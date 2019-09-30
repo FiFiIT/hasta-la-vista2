@@ -18,13 +18,25 @@ export const getCurrentDate = () => {
   return currentDate;
 };
 
-export const convertInputDate = date => {
-  const year = date.substring(0, 4);
-  const month = date.substring(5, 7) - 1;
-  const day = date.substring(8, 10);
+export function convertInputDate(date){
+  const day = date.substring(0, 2);
+  const month = date.substring(3, 5) - 1;
+  const year = date.substring(6, 10);
 
-  return new Date(year, month, day, 0, 0, 0, 0).toLocaleDateString();
-};
+  let currentDate = year;
+  if (month < 10) {
+    currentDate = currentDate + "-0" + month;
+  } else {
+    currentDate = currentDate + "-" + month;
+  }
+  if (day < 10) {
+    currentDate = currentDate + "-0" + day;
+  } else {
+    currentDate = currentDate + "-" + day;
+  }
+
+  return currentDate;
+}
 
 export function convertDatePart(name, value) {
   switch (name) {
