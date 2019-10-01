@@ -15,7 +15,7 @@ const SquashPage = ({ squashApi, freeCourts, searchSquash }) => {
 
   useEffect(() => {
     if (freeCourts && freeCourts.length === 0 && squashApi > 0) {
-      setTimeout(() => searchSquash(squashRequest), 10000);
+      setTimeout(() => searchSquash(squashRequest), 60000);
 
       console.log(
         new Date().toLocaleTimeString() +
@@ -28,9 +28,12 @@ const SquashPage = ({ squashApi, freeCourts, searchSquash }) => {
   const handleOnSubmit = event => {
     event.preventDefault();
 
-    if(defaultStartDate){
+    if (defaultStartDate) {
       setSquashRequest(prevRequest => {
-        return {...prevRequest, "StartDate": convertInputDate(prevRequest.StartDate) }
+        return {
+          ...prevRequest,
+          StartDate: convertInputDate(prevRequest.StartDate)
+        };
       });
     }
 
@@ -41,7 +44,7 @@ const SquashPage = ({ squashApi, freeCourts, searchSquash }) => {
   const handleOnChange = event => {
     const { name, value } = event.target;
 
-    if(name === "StartDate"){
+    if (name === "StartDate") {
       setDefaultStartDate(false);
     }
 

@@ -18,7 +18,7 @@ export const getCurrentDate = () => {
   return currentDate;
 };
 
-export function convertInputDate(date){
+export function convertInputDate(date) {
   const day = date.substring(0, 2);
   const month = date.substring(3, 5) - 1;
   const year = date.substring(6, 10);
@@ -35,6 +35,7 @@ export function convertInputDate(date){
     currentDate = currentDate + "-" + day;
   }
 
+  console.log(date + " -> " + currentDate);
   return currentDate;
 }
 
