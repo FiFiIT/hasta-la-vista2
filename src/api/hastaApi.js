@@ -9,7 +9,7 @@ const baseUrl = process.env.REACT_APP_SQUASH_BASE_URL;
 // }
 
 export function searchForFreeCourts(reservationRequest) {
-  const request = baseUrl + "/squash/freeCourtsExclude";
+  const request = baseUrl + "/api/squash/freeCourtsExclude";
   return fetch(request, {
     method: "POST",
     headers: { "content-type": "application/json" },
