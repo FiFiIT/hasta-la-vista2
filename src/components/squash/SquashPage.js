@@ -11,7 +11,6 @@ import Searching from "../common/Searching";
 
 const SquashPage = ({ squashApi, freeCourts, searchSquash }) => {
   const [squashRequest, setSquashRequest] = useState(newSquashRequest);
-  const [defaultStartDate, setDefaultStartDate] = useState(true);
 
   useEffect(() => {
     if (freeCourts && freeCourts.length === 0 && squashApi > 0) {
@@ -34,10 +33,6 @@ const SquashPage = ({ squashApi, freeCourts, searchSquash }) => {
 
   const handleOnChange = event => {
     const { name, value } = event.target;
-
-    if (name === "StartDate") {
-      setDefaultStartDate(false);
-    }
 
     setSquashRequest(prevRequest => ({
       ...prevRequest,
