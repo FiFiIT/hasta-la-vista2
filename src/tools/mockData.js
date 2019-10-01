@@ -3,7 +3,17 @@ const newSquashRequest = {
   StartTime: "17:00",
   EndTime: "19:00",
   Duration: 60,
-  Exclude: [1, 2]
+  Exclude: [1, 2],
+  type: "squash"
+};
+
+const newBadmintonRequest = {
+  StartDate: new Date().toLocaleDateString(),
+  StartTime: "17:00",
+  EndTime: "19:00",
+  Duration: 60,
+  Exclude: [],
+  type: "badminton"
 };
 
 const courtsNoData = [];
@@ -249,5 +259,6 @@ const freeCourtsExclude = [
 module.exports = {
   newSquashRequest,
   freeCourtsExclude,
-  courtsNoData
+  courtsNoData,
+  newBadmintonRequest
 };
