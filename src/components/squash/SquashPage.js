@@ -28,15 +28,6 @@ const SquashPage = ({ squashApi, freeCourts, searchSquash }) => {
   const handleOnSubmit = event => {
     event.preventDefault();
 
-    if (defaultStartDate) {
-      setSquashRequest(prevRequest => {
-        return {
-          ...prevRequest,
-          StartDate: convertInputDate(prevRequest.StartDate)
-        };
-      });
-    }
-
     console.log(JSON.stringify(squashRequest));
     searchSquash(squashRequest);
   };
