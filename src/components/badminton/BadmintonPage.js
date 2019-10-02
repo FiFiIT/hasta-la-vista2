@@ -8,11 +8,11 @@ import Searching from "../common/Searching";
 import * as badmintonActions from "../../redux/actions/badmintonActions";
 import BadmintonList from "../common/HastaCourtsList";
 
-const BadmintonPage = ({ hastaApi, freeCourts, searchBadminton }) => {
+const BadmintonPage = ({ hastaApi, foundCourts, searchBadminton }) => {
   const [badmintonRequest, setBadmintonRequest] = useState(newBadmintonRequest);
 
   useEffect(() => {
-    if (freeCourts && freeCourts.length === 0 && hastaApi > 0) {
+    if (foundCourts && foundCourts.length === 0 && hastaApi > 0) {
       setTimeout(() => searchBadminton(badmintonRequest), 60000);
 
       console.log(
@@ -21,7 +21,7 @@ const BadmintonPage = ({ hastaApi, freeCourts, searchBadminton }) => {
           JSON.stringify(badmintonRequest)
       );
     }
-  }, [freeCourts]);
+  }, [foundCourts]);
 
   const handleOnChange = event => {
     const { name, value } = event.target;
@@ -40,10 +40,13 @@ const BadmintonPage = ({ hastaApi, freeCourts, searchBadminton }) => {
 
   return (
     <>
-      {hastaApi || freeCourts.length > 0 ? (
+      {hastaApi || foundCourts.length > 0 ? (
         <>
           <Searching request={badmintonRequest} show={hastaApi} />
-          <BadmintonList freeCourts={freeCourts} rectCourts={badmintonCourts} />
+          <BadmintonList
+            freeCourts={foundCourts}
+            rectCourts={badmintonCourts}
+          />
         </>
       ) : (
         <BadmintonForm
@@ -60,7 +63,7 @@ const BadmintonPage = ({ hastaApi, freeCourts, searchBadminton }) => {
 function mapStateToProps(state) {
   return {
     hastaApi: state.squashApiCallInProgress,
-    freeCourts: state.freeCourts
+    foundCourts: state.foundCourts
   };
 }
 

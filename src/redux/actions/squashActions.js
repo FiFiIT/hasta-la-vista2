@@ -2,10 +2,6 @@ import * as types from "./actionTypes";
 import * as squashApi from "../../api/hastaApi";
 import { beginApiCall, stopApiCall } from "./apiStatusActions";
 
-export function search(squashRequest) {
-  return { type: types.SERACH_SQUASH, squashRequest };
-}
-
 export function searchSquashSuccess(freeCourts) {
   return { type: types.SEARCH_SQUASH_SUCCESS, freeCourts };
 }
