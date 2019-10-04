@@ -21,7 +21,7 @@ const BadmintonPage = ({ hastaApi, foundCourts, searchBadminton }) => {
           JSON.stringify(badmintonRequest)
       );
     }
-  }, [foundCourts]);
+  }, [foundCourts, badmintonRequest, hastaApi, searchBadminton]);
 
   const handleOnChange = event => {
     const { name, value } = event.target;

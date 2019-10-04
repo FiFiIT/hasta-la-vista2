@@ -4,7 +4,9 @@ const newSquashRequest = {
   EndTime: "19:00",
   Duration: 60,
   Exclude: [1, 2],
-  type: "squash"
+  type: "squash",
+  email: "",
+  password: ""
 };
 
 const newBadmintonRequest = {

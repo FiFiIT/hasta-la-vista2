@@ -76,6 +76,32 @@ const SearchFrom = ({
                       </div>
                     </div>
                   </div>
+                  <div className="row no-margin">
+                    <div className="col-sm-8">
+                      <div className="form-group">
+                        <span className="form-label">Email:</span>
+                        <input
+                          type="email"
+                          className="form-control"
+                          name="email"
+                          onChange={handleOnChange}
+                          value={squashRequest.email}
+                        />
+                      </div>
+                    </div>
+                    <div className="col-sm-4">
+                      <div className="form-group">
+                        <span className="form-label">Hasło:</span>
+                        <input
+                          type="password"
+                          className="form-control"
+                          name="password"
+                          onChange={handleOnChange}
+                          value={squashRequest.password}
+                        />
+                      </div>
+                    </div>
+                  </div>
                   <div className="form-btn">
                     <button className="submit-btn" onClick={handleOnSubmit}>
                       Szukaj

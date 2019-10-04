@@ -13,7 +13,7 @@ const HastaCourtsList = ({ freeCourts, rectCourts }) => {
 
       setavailableCourts(mergeById);
     }
-  }, [freeCourts]);
+  }, [freeCourts, rectCourts]);
 
   return (
     <>
