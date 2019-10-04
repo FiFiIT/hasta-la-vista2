@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import * as squashAction from "../../redux/actions/squashActions";
 import { newSquashRequest } from "../../tools/mockData";
 import { squashCourts } from "../../tools/courtsCoordinates";
-import { convertInputDate } from "../../tools/helpers";
 import "./SquashPage.css";
 import SquashList from "../common/HastaCourtsList";
 import Searching from "../common/Searching";
@@ -22,7 +21,7 @@ const SquashPage = ({ squashApi, freeCourts, searchSquash }) => {
           JSON.stringify(squashRequest)
       );
     }
-  }, [freeCourts]);
+  }, [freeCourts, squashApi, squashRequest, searchSquash]);
 
   const handleOnSubmit = event => {
     event.preventDefault();
