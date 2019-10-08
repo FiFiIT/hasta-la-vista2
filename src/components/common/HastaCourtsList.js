@@ -28,7 +28,6 @@ const HastaCourtsList = ({ freeCourts, rectCourts }) => {
             getTime(freeCourts[0].free[last].to)
         );
       } else {
-        debugger;
         const korty = freeCourts.map(c => c.number + ", ");
 
         setPhrase(korty);
