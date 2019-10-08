@@ -5,7 +5,9 @@ import "./HastaCourtsList.css";
 
 const HastaCourtsList = ({ freeCourts, rectCourts }) => {
   const [availableCourts, setavailableCourts] = useState([]);
-  const [phrase, setPhrase] = useState("Lista wolnych kortów:");
+  const [phrase, setPhrase] = useState("");
+  const [phrase2, setPhrase2] = useState("Lista wolnych kortów:");
+
   useEffect(() => {
     if (freeCourts && freeCourts.length > 0) {
       const mergeById = rectCourts.filter(rect =>
@@ -14,6 +16,8 @@ const HastaCourtsList = ({ freeCourts, rectCourts }) => {
       setavailableCourts(mergeById);
 
       if (freeCourts[0].booked) {
+        setPhrase2("");
+
         const last = freeCourts[0].free.length - 1;
         setPhrase(
           "Zarezerwowano kort numer: " +
@@ -24,9 +28,10 @@ const HastaCourtsList = ({ freeCourts, rectCourts }) => {
             getTime(freeCourts[0].free[last].to)
         );
       } else {
-        let text =
-          "Lista wolnych kortów: " + availableCourts.map(c => c.number + ", ");
-        setPhrase(text.substring(0, text.length - 1));
+        debugger;
+        const korty = freeCourts.map(c => c.number + ", ");
+
+        setPhrase(korty);
       }
     }
   }, [freeCourts, rectCourts]);
@@ -35,7 +40,9 @@ const HastaCourtsList = ({ freeCourts, rectCourts }) => {
     <>
       {availableCourts.length > 0 && (
         <>
-          <p>{phrase}</p>
+          <p>
+            {phrase2} {phrase}
+          </p>
           <div id="hastaplan">
             <Stage width={1023} height={686}>
               <Layer>
