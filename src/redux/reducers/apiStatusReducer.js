@@ -8,8 +8,8 @@ export default function apiCallStatusReducer(
   switch (action.type) {
     case types.BEGIN_API_CALL:
       return true;
-    case types.STOP_API_CALL:
-      return false;
+    case types.SEARCH_SQUASH_SUCCESS:
+      return action.freeCourts.length === 0;
     default:
       return state;
   }

@@ -13,7 +13,7 @@ const SquashPage = ({ squashApi, freeCourts, searchSquash }) => {
 
   useEffect(() => {
     if (freeCourts && freeCourts.length === 0 && squashApi > 0) {
-      setTimeout(() => searchSquash(squashRequest), 60000);
+      //setTimeout(() => searchSquash(squashRequest), 60000);
 
       console.log(
         new Date().toLocaleTimeString() +
@@ -48,7 +48,7 @@ const SquashPage = ({ squashApi, freeCourts, searchSquash }) => {
         </>
       ) : (
         <SquashForm
-          squashRequest={squashRequest}
+          hastaRequest={squashRequest}
           handleOnChange={handleOnChange}
           handleOnSubmit={handleOnSubmit}
           title="Squash"

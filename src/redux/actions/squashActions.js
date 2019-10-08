@@ -13,9 +13,6 @@ export function searchSquash(squashRequest) {
       .searchForFreeCourts(squashRequest)
       .then(freeCourts => {
         dispatch(searchSquashSuccess(freeCourts));
-        if (freeCourts.length > 0) {
-          dispatch(stopApiCall());
-        }
       })
       .catch(error => {
         console.log("Error when searchForFreeCourts: " + error);

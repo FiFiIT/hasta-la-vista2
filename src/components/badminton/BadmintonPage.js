@@ -50,7 +50,7 @@ const BadmintonPage = ({ hastaApi, foundCourts, searchBadminton }) => {
         </>
       ) : (
         <BadmintonForm
-          squashRequest={badmintonRequest}
+          hastaRequest={badmintonRequest}
           handleOnChange={handleOnChange}
           handleOnSubmit={handleOnSubmit}
           title="Badminton"

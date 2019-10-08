@@ -18,6 +18,13 @@ export const getCurrentDate = () => {
   return currentDate;
 };
 
+export function getTime(date) {
+  let time = date.slice(-8);
+  const length = time.length - 3;
+
+  return time.substring(0, length);
+}
+
 export function convertInputDate(date) {
   const day = date.substring(0, 2);
   const month = date.substring(3, 5) - 1;

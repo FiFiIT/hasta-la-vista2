@@ -4,7 +4,7 @@ import { getCurrentDate } from "../../tools/helpers";
 import logo from "../img/hasta-logo.png";
 
 const SearchFrom = ({
-  squashRequest,
+  hastaRequest,
   handleOnChange,
   handleOnSubmit,
   title
@@ -40,7 +40,7 @@ const SearchFrom = ({
                           className="form-control"
                           type="time"
                           name="StartTime"
-                          value={squashRequest.StartTime}
+                          value={hastaRequest.StartTime}
                           onChange={handleOnChange}
                           required
                         />
@@ -54,7 +54,7 @@ const SearchFrom = ({
                           className="form-control"
                           type="time"
                           name="EndTime"
-                          value={squashRequest.EndTime}
+                          value={hastaRequest.EndTime}
                           onChange={handleOnChange}
                           required
                         />
@@ -85,7 +85,7 @@ const SearchFrom = ({
                           className="form-control"
                           name="email"
                           onChange={handleOnChange}
-                          value={squashRequest.email}
+                          value={hastaRequest.email}
                         />
                       </div>
                     </div>
@@ -97,7 +97,7 @@ const SearchFrom = ({
                           className="form-control"
                           name="password"
                           onChange={handleOnChange}
-                          value={squashRequest.password}
+                          value={hastaRequest.password}
                         />
                       </div>
                     </div>

@@ -13,9 +13,6 @@ export function searchBadminton(badmintonRequest) {
       .searchForFreeCourts(badmintonRequest)
       .then(freeCourts => {
         dispatch(searchBadmintonSuccess(freeCourts));
-        if (freeCourts.length > 0) {
-          dispatch(stopApiCall());
-        }
       })
       .catch(error => {
         console.log("Error when searchForFreeCourts: " + error);
