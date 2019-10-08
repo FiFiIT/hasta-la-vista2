@@ -15,7 +15,7 @@ const SearchFrom = ({
         <div className="container">
           <div className="row">
             <div className="col-md-5">
-              <h4>{title}</h4>
+              <h4 className="bigTitle">{title}</h4>
             </div>
           </div>
           <div className="row">
